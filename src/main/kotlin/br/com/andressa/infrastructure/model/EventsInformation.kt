@@ -1,7 +1,7 @@
 package br.com.andressa.infrastructure.model
 
-data class EventsInformation(
+data class EventsInformation (
 
-    val events: Events,
+    val event: Events,
     val todoEvent: TodoEvent
 )

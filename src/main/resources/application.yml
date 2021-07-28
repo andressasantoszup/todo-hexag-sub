@@ -8,8 +8,10 @@ micronaut:
 endpoints:
   health:
     enabled: true
-nats.addresses:
-  nats: //localhost:4222
+nats:
+  server1:
+    addresses:
+      - "nats://localhost:4222"
 cassandra:
   default:
     advanced:
