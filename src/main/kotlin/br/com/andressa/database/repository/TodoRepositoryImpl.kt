@@ -11,7 +11,7 @@ import javax.inject.Singleton
 class TodoRepositoryImpl(private val cqlSession: CqlSession): TodoRepositoryPort {
 
 
-    override fun saveCql(todoEntity: TodoEntity): TodoEntity {
+    override fun saveCql(todoEntity: TodoEntity) {
         cqlSession.execute(
             SimpleStatement.newInstance(
                 "INSERT INTO todo(id, date, description, done) values (?,?,?,?)",
@@ -21,10 +21,10 @@ class TodoRepositoryImpl(private val cqlSession: CqlSession): TodoRepositoryPort
                 todoEntity.done
             )
         )
-        return todoEntity
+
     }
 
-    override fun updateCql(id: UUID, todoEntity: TodoEntity): TodoEntity {
+    override fun updateCql(id: UUID, todoEntity: TodoEntity) {
         cqlSession.execute(
             SimpleStatement.newInstance("UPDATE todo.Todo SET date=?, description=?, done=? WHERE id=?",
 
@@ -35,7 +35,7 @@ class TodoRepositoryImpl(private val cqlSession: CqlSession): TodoRepositoryPort
 
             )
         )
-        return todoEntity
+
     }
 
     override fun deleteCql(id: UUID) {

@@ -5,7 +5,7 @@ import java.util.*
 
 interface TodoRepositoryPort {
 
-    fun saveCql(todoEntity: TodoEntity): TodoEntity
-    fun updateCql (id: UUID, todoEntity: TodoEntity): TodoEntity
+    fun saveCql(todoEntity: TodoEntity)
+    fun updateCql (id: UUID, todoEntity: TodoEntity)
     fun deleteCql(id: UUID)
 }

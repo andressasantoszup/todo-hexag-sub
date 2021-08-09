@@ -16,13 +16,13 @@ class TodoListener(private val todoServicePort: TodoServicePort) {
     @Subject("todo.scheduled")
     fun receber(eventsInformation: EventsInformation){
         log.info("chegou")
-//        val todo = TodoConverter.todoEventToTodo(eventsInformation.todoEvent)
-//
-//        when(eventsInformation.events.name){
-//            "SAVE" -> todoServicePort.addTodo(todo)
-//            "UPDATE" -> todoServicePort.updateTodo(todo.id!!, todo)
-//            "DELETE" -> todoServicePort.deleteTodo(todo.id!!)
-//        }
+        val todo = TodoConverter.todoEventToTodo(eventsInformation.todoEvent)
+
+        when(eventsInformation.event.name){
+            "SAVE" -> todoServicePort.addTodo(todo)
+            "UPDATE" -> todoServicePort.updateTodo(todo.id!!, todo)
+            "DELETE" -> todoServicePort.deleteTodo(todo.id!!)
+        }
 
     }
 }
